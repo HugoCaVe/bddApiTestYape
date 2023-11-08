@@ -7,7 +7,9 @@ Pruebas automatizadas a los servicios web en la aplicación de reservas RESTFUL 
 
 ## Plan de Pruebas
 1- Se diseñaron varios escenarios para cada uno de las funcionalidades, mediante "Examples" se agregó más cobertura y repeticiones del mismo escenario con Data variada, de está forma se logra  cubrir una gran cantidad de escenarios Happy Paths y UnHappy Paths.
+
 2- Se logró una gran cobertura de pruebas, ya que los escenarios permiten modificar la gran mayoría de la información de entrada, con la que se obtiene un resultado esperado a nivel de respuesta “CODE” y como de Data.
+
 3- Las herramientas y técnicas utilizadas para realizar la automatización de la funcionalidad se describen a continuación:
 
 ## Prerequisitos para la ejecución 📋
