@@ -1,0 +1,75 @@
+group = 'com.yape.apitest'
+version = '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        jcenter()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:2.1.5"
+        classpath "net.serenity-bdd:serenity-single-page-report:2.1.5"
+        classpath "gradle.plugin.com.github.sherter.google-java-format:google-java-format-gradle-plugin:0.9"
+        classpath "io.freefair.gradle:lombok-plugin:5.1.1"
+        classpath "com.github.samueltbrown:gradle-cucumber-plugin:0.9"
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+    jcenter()
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'jacoco'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+serenity {
+    reports = ["single-page-html"]
+}
+
+ext{
+    serenityVersion = '2.0.52'
+    serenityCucumberVersion = '2.2.5'
+}
+
+configurations {
+    deployerJar
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.9.1'
+
+    implementation 'net.serenity-bdd:serenity-rest-assured:1.9.9'
+    implementation "net.serenity-bdd:serenity-screenplay-rest:2.2.9"
+    implementation "net.serenity-bdd:serenity-screenplay:$rootProject.ext.serenityVersion"
+    implementation "net.serenity-bdd:serenity-cucumber5:$rootProject.ext.serenityCucumberVersion"
+    implementation "net.serenity-bdd:serenity-reports:$rootProject.ext.serenityVersion"
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate, reports)
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+}
