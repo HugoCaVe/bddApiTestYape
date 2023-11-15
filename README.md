@@ -37,7 +37,7 @@ El proyecto se puede ejecutar desde la consola con el siguiente comando: gradle 
 ## Construido con 🛠
 
 BDD - Development strategy
-Screenplay
+POM - Page Object Model
 Gradle - Dependency manager
 Cucumber - Framework to automate BDD tests
 Serenity BDD - Open source library for report generation
