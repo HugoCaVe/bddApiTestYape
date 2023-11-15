@@ -36,12 +36,12 @@ El proyecto se puede ejecutar desde la consola con el siguiente comando: gradle 
 
 ## Construido con 🛠
 
-BDD - Development strategy
-POM - Page Object Model
-Gradle - Dependency manager
-Cucumber - Framework to automate BDD tests
-Serenity BDD - Open source library for report generation
-Gherkin - Business Readable DSL Language (Business-readable domain specific language)
+- BDD - Development strategy
+- POM - Page Object Model
+- Gradle - Dependency manager
+- Cucumber - Framework to automate BDD tests
+- Serenity BDD - Open source library for report generation
+- Gherkin - Business Readable DSL Language (Business-readable domain specific language)
 
 ## Versionamiento 📌
 
